@@ -9,17 +9,17 @@ export const ContainerWrapper = styled.div`
 
   background-color: transparent;
 
-  @media screen and (min-width: 480px) {
-    max-width: 480px;
+  @media screen and (min-width: ${props => props.theme.breakpoints.mobile}) {
+    max-width: ${props => props.theme.breakpoints.mobile};
   }
 
-  @media screen and (min-width: 768px) {
-    max-width: 768px;
+  @media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
+    max-width: ${props => props.theme.breakpoints.tablet};
     padding: 0 20px;
   }
 
-  @media screen and (min-width: 1200px) {
-    max-width: 1200px;
+  @media screen and (min-width: ${props => props.theme.breakpoints.desktop}) {
+    max-width: ${props => props.theme.breakpoints.desktop};
     padding: 0 40px;
   }
 `;

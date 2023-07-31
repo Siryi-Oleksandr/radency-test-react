@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { ContainerWrapper } from './Container.styled';
 
-type ContainerProps = {
-  children?: React.ReactNode;
+type Props = {
+  children: React.ReactNode;
 };
 
-const Container: FC<ContainerProps> = ({ children }) => {
+const Container: FC<Props> = ({ children }) => {
   return <ContainerWrapper>{children}</ContainerWrapper>;
 };
 
