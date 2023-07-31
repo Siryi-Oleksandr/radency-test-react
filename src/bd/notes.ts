@@ -1,0 +1,60 @@
+import { INote } from 'types/INote';
+
+export const initialNotes: INote[] = [
+  {
+    id: '1',
+    name: 'Shopping list',
+    created: '2023-07-30',
+    category: 'Task',
+    content: 'Tomatoes, bread',
+    dates: ['2023-07-30', '2023-07-29'],
+  },
+  {
+    id: '2',
+    name: 'New feature',
+    created: '2023-07-30',
+    category: 'Random Thought',
+    content: 'Amazing features',
+    dates: ['2023-07-30'],
+  },
+  {
+    id: '3',
+    name: 'The theory of evolution',
+    created: '2023-07-30',
+    category: 'Idea',
+    content: 'It is something increadable',
+    dates: ['2023-07-30'],
+  },
+  {
+    id: '4',
+    name: 'Books',
+    created: '2023-07-28',
+    category: 'Task',
+    content: 'Learn new material',
+    dates: ['2023-07-28', '2023-07-30'],
+  },
+  {
+    id: '5',
+    name: 'Who is God',
+    created: '2023-07-30',
+    category: 'Random Thought',
+    content: 'Who did create world?',
+    dates: ['2023-07-30'],
+  },
+  {
+    id: '6',
+    name: 'Pet project',
+    created: '2023-07-30',
+    category: 'Idea',
+    content: 'Create portfolio application',
+    dates: ['2023-07-30'],
+  },
+  {
+    id: '7',
+    name: 'Learn English',
+    created: '2023-07-30',
+    category: 'Task',
+    content: 'Order new courses in English',
+    dates: ['2023-07-30', '2023-08-02'],
+  },
+];

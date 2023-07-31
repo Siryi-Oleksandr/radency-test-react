@@ -11,8 +11,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* background-color: #ccc; */
-  background-color: teal;
+  background-color: #ccc;
+
 }
 
 code {
