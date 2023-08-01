@@ -7,6 +7,7 @@ import Icon from 'components/Icon/Icon';
 import Modal from 'components/Modal/Modal';
 import AddBtn from 'components/Buttons/AddBtn/AddBtn';
 import AddForm from 'components/AddForm/AddForm';
+import EditForm from 'components/EditForm/EditForm';
 import Warning from 'components/Warning/Warning';
 import TextBtn from 'components/Buttons/TextBtn/TextBtn';
 
@@ -22,4 +23,5 @@ export {
   AddForm,
   Warning,
   TextBtn,
+  EditForm,
 };

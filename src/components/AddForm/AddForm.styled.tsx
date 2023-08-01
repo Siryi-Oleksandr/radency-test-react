@@ -10,7 +10,7 @@ export const FormStyled = styled.form`
   border-radius: ${props => props.theme.radii.medium};
 `;
 
-export const Label = styled.form`
+export const Label = styled.label`
   margin-bottom: 5px;
   display: block;
   font-weight: bold;
