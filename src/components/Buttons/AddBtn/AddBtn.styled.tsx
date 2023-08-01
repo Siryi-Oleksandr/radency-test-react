@@ -7,18 +7,19 @@ export const Btn = styled.button`
 
   width: fit-content;
 
-  border: 1px solid $bg-btn-active-color;
-  border-radius: 4px;
+  border: 1px solid ${props => props.theme.colors.bg};
+  border-radius: ${props => props.theme.radii.medium};
   cursor: pointer;
+  outline: none;
 
-  color: $txt-black-color;
-  background-color: ${props => props.theme.color.bgTableRow};
+  color: ${props => props.theme.colors.black};
+  background-color: ${props => props.theme.colors.bgTableRow};
 
   transition: ${props => props.theme.transition.hover};
 
   &:hover,
   &:focus {
-    background-color: ${props => props.theme.color.bgHover};
+    background-color: ${props => props.theme.colors.bgHover};
     transform: scale(1.05);
   }
 `;

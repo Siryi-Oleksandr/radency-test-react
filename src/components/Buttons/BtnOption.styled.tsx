@@ -18,7 +18,6 @@ export const Btn = styled.button`
 
   &:hover,
   &:focus {
-    color: ${props => props.theme.colors.active};
     transform: scale(1.1);
   }
 `;

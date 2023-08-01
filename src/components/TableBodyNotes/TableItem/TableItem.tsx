@@ -5,9 +5,7 @@ import { HiPencil } from 'react-icons/hi';
 import { RiFolderDownloadFill } from 'react-icons/ri';
 import { MdDelete } from 'react-icons/md';
 import { INote } from 'types/INote';
-import { getIcon } from 'services/getIcon';
-import { cutString } from 'services/cutString';
-import { showDates } from 'services/showDates';
+import { getIcon, cutString, showDates } from 'services';
 
 interface Props {
   note: INote;

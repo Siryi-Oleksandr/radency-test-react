@@ -1,10 +1,16 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, ReactNode, FC } from 'react';
 import { createPortal } from 'react-dom';
-import { CloseBtn, ModalContainer, Overlay, MyCloseIcon } from './Modal.styled';
+import { CloseBtn, ModalContainer, Overlay } from './Modal.styled';
+import { RiCloseFill } from 'react-icons/ri';
 
-export const Modal = ({ children, onClose }) => {
+interface Props {
+  children: ReactNode;
+  onClose: () => void;
+}
+
+const Modal: FC<Props> = ({ children, onClose }) => {
   const handleKeyPress = useCallback(
-    evt => {
+    (evt: KeyboardEvent) => {
       if (evt.key === 'Escape') {
         onClose();
       }
@@ -13,7 +19,7 @@ export const Modal = ({ children, onClose }) => {
   );
 
   const handleOverlayClick = useCallback(
-    evt => {
+    (evt: React.MouseEvent<HTMLDivElement>) => {
       if (evt.target === evt.currentTarget) {
         onClose();
       }
@@ -32,11 +38,13 @@ export const Modal = ({ children, onClose }) => {
     <Overlay onClick={handleOverlayClick}>
       <ModalContainer>
         <CloseBtn onClick={onClose}>
-          <MyCloseIcon width="24" height="24"></MyCloseIcon>
+          <RiCloseFill size="1.5em" />
         </CloseBtn>
         {children}
       </ModalContainer>
     </Overlay>,
-    document.getElementById('modal-root')
+    document.getElementById('modal-root')!
   );
 };
+
+export default Modal;

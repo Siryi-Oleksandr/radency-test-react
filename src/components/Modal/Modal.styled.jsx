@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { ReactComponent as CloseIcon } from '../../icons/x-close.svg';
 
 export const Overlay = styled.div`
   position: fixed;
@@ -23,11 +22,10 @@ export const ModalContainer = styled.div`
   min-height: 336px;
   max-height: 95vh;
   box-sizing: border-box;
-  border: ${props => props.theme.borders.normal} rgba(220, 227, 229, 0.8);
-  background-color: ${props => props.theme.colors.second_background_switch};
+  border: 1px solid rgba(220, 227, 229, 0.8);
+  background-color: ${props => props.theme.colors.white};
   border-radius: ${props => props.theme.radii.small};
   box-shadow: 0px 4px 16px 0px #1111111a;
-  border-color: ${props => props.theme.colors.modal_border_color};
 
   @media screen and (min-width: ${props => props.theme.breakpoints.table}) {
     padding: 40px 28px;
@@ -48,12 +46,10 @@ export const CloseBtn = styled.button`
   background-color: inherit;
   border: none;
   cursor: pointer;
-`;
+  transition: ${props => props.theme.transition.hover};
 
-export const MyCloseIcon = styled(CloseIcon)`
-  stroke: ${props => props.theme.colors.primary_text_switch};
-  :hover {
-    stroke: rgb(62, 133, 243);
-    transition: ${props => props.theme.transition.hover};
+  &:hover,
+  &:focus {
+    transform: scale(1.15);
   }
 `;

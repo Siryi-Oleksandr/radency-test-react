@@ -1,8 +1,12 @@
 import React, { FC } from 'react';
 import { Btn } from './AddBtn.styled';
 
-const AddBtn: FC = () => {
-  return <Btn onClick={}>Create Note</Btn>;
+interface IProps {
+  openModal: () => void;
+}
+
+const AddBtn: FC<IProps> = ({ openModal }) => {
+  return <Btn onClick={openModal}>Create Note</Btn>;
 };
 
 export default AddBtn;

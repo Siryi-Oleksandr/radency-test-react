@@ -3,7 +3,7 @@ import { FaHeadSideVirus } from 'react-icons/fa';
 
 type Category = 'Task' | 'Random Thought' | 'Idea';
 
-export function getIcon(category: Category): JSX.Element {
+ function getIcon(category: Category): JSX.Element {
   switch (category) {
     case 'Task':
       return <AiOutlineShoppingCart />;
@@ -16,3 +16,5 @@ export function getIcon(category: Category): JSX.Element {
       return <AiOutlineBulb />;
   }
 }
+
+export default getIcon;
