@@ -19,8 +19,8 @@ const TableHeadNotes: FC = () => {
         <TableHeadTitle>Content</TableHeadTitle>
         <TableHeadTitle>Dates</TableHeadTitle>
         <TableOptions>
-          <BtnOption icon={<MdDelete size="1.5em" />} />
           <BtnOption icon={<RiFolderDownloadFill size="1.5em" />} />
+          <BtnOption icon={<MdDelete size="1.5em" />} />
         </TableOptions>
       </tr>
     </TableHead>

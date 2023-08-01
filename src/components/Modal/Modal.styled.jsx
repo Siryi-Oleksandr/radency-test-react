@@ -11,7 +11,7 @@ export const Overlay = styled.div`
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  background-color: transparent;
+  background-color: ${props => props.theme.colors.bgBackdrop};
   z-index: 100;
 `;
 
@@ -21,6 +21,12 @@ export const ModalContainer = styled.div`
   min-width: 303px;
   min-height: 336px;
   max-height: 95vh;
+
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+
   box-sizing: border-box;
   border: 1px solid rgba(220, 227, 229, 0.8);
   background-color: ${props => props.theme.colors.white};

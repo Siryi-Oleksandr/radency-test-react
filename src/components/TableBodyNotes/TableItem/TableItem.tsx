@@ -1,6 +1,8 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
+import { useAppDispatch } from 'hooks/reduxHooks';
+import { deleteNote } from 'redux/notesSlice';
 import { TableData, TableRow, TableDataOptions } from './TableItem.styled';
-import { BtnOption, Icon } from 'components';
+import { BtnOption, Icon, Modal, Warning } from 'components';
 import { HiPencil } from 'react-icons/hi';
 import { RiFolderDownloadFill } from 'react-icons/ri';
 import { MdDelete } from 'react-icons/md';
@@ -12,6 +14,24 @@ interface Props {
 }
 
 const TableItem: FC<Props> = ({ note }) => {
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
+
+  const handleShowModal = () => {
+    setShowModal(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    document.body.style.overflow = 'auto';
+  };
+
+  const handleDeleteNote = () => {
+    dispatch(deleteNote(note.id));
+    handleCloseModal();
+  };
+
   const { name, created, category, content, dates } = note;
   return (
     <TableRow>
@@ -24,10 +44,22 @@ const TableItem: FC<Props> = ({ note }) => {
       <TableData>{cutString(content)}</TableData>
       <TableData>{showDates(dates)}</TableData>
       <TableDataOptions>
-        <BtnOption icon={<HiPencil size="1.5em" />} />
-        <BtnOption icon={<RiFolderDownloadFill size="1.5em" />} />
-        <BtnOption icon={<MdDelete size="1.5em" />} />
+        <BtnOption onClick={handleShowModal} icon={<HiPencil size="1.5em" />} />
+        <BtnOption
+          onClick={handleShowModal}
+          icon={<RiFolderDownloadFill size="1.5em" />}
+        />
+        <BtnOption onClick={handleShowModal} icon={<MdDelete size="1.5em" />} />
       </TableDataOptions>
+      {showModal && (
+        <Modal onClose={handleCloseModal} aria-label="Modal window is open">
+          <Warning
+            action={handleDeleteNote}
+            cancel={handleCloseModal}
+            text="Are you sure you want to delete the note?"
+          />
+        </Modal>
+      )}
     </TableRow>
   );
 };

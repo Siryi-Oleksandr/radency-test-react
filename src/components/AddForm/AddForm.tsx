@@ -32,7 +32,7 @@ interface IProps {
 
 const AddForm: FC<IProps> = ({ closeModal }) => {
   const [formData, setFormData] = useState<IForm>(initialState);
-  const dispatch = useAppDispatch(); // Get the dispatch function from Redux
+  const dispatch = useAppDispatch();
 
   // Form submission handler
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {

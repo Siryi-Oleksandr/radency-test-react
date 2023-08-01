@@ -6,7 +6,7 @@ import { initialNotes } from 'bd/notes';
 // Define a type for the slice state
 interface INotesState {
   notes: INote[];
-  archivedNotes: []; // TODO inport from /types
+  archivedNotes: [];
 }
 
 // Define the initial state using that type
@@ -22,10 +22,13 @@ export const notesSlice = createSlice({
     createNote: (state, action: PayloadAction<INote>) => {
       state.notes.push(action.payload);
     },
+    deleteNote: (state, action: PayloadAction<string>) => {
+      state.notes = state.notes.filter(note => note.id !== action.payload);
+    },
   },
 });
 
-export const { createNote } = notesSlice.actions;
+export const { createNote, deleteNote } = notesSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 // export const selectCount = (state: RootState) => state.counter.value;

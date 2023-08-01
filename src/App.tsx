@@ -16,11 +16,14 @@ function App() {
 
   const handleShowModal = () => {
     setShowModal(true);
+    document.body.style.overflow = 'hidden';
   };
 
   const handleCloseModal = () => {
     setShowModal(false);
+    document.body.style.overflow = 'auto';
   };
+
   return (
     <Container>
       <GlobalStyle />
