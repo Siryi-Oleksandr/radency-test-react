@@ -7,8 +7,6 @@ export const FormStyled = styled.form`
   flex-direction: column;
   gap: 15px;
 
-  background-color: ${props => props.theme.colors.white};
-  border: 1px solid ${props => props.theme.colors.bg};
   border-radius: ${props => props.theme.radii.medium};
 `;
 
@@ -25,7 +23,7 @@ export const InputText = styled.input`
   border-radius: 4px;
   resize: none;
   outline: none;
-  /* transition: ${props => props.theme.transtion.hover}; */
+  transition: ${props => props.theme.transition.hover};
 
   &:hover,
   &:focus {
@@ -40,7 +38,7 @@ export const Select = styled.select`
   border-radius: 4px;
   resize: none;
   outline: none;
-  /* transition: ${props => props.theme.transtion.hover}; */
+  transition: ${props => props.theme.transition.hover};
 
   &:hover,
   &:focus {
@@ -49,13 +47,13 @@ export const Select = styled.select`
 `;
 export const Textarea = styled.textarea`
   width: 100%;
-  height: 60px;
+  height: 80px;
   padding: 8px;
   border: 1px solid ${props => props.theme.colors.border};
   border-radius: 4px;
   resize: none;
   outline: none;
-  /* transition: ${props => props.theme.transtion.hover}; */
+  transition: ${props => props.theme.transition.hover};
   resize: none;
 
   &:hover,
@@ -73,14 +71,14 @@ export const BtnSubmit = styled.input`
   width: fit-content;
 
   border: 1px solid ${props => props.theme.colors.bg};
-  border-radius: ${props => props.theme.radii.medium};
+  border-radius: ${props => props.theme.radii.small};
   cursor: pointer;
   outline: none;
 
   color: ${props => props.theme.colors.black};
   background-color: ${props => props.theme.colors.bgTableRow};
 
-  /* transition: ${props => props.theme.transition.hover}; */
+  transition: ${props => props.theme.transition.hover};
 
   &:hover,
   &:focus {

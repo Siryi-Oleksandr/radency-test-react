@@ -8,7 +8,7 @@ export const Btn = styled.button`
   width: fit-content;
 
   border: 1px solid ${props => props.theme.colors.bg};
-  border-radius: ${props => props.theme.radii.medium};
+  border-radius: ${props => props.theme.radii.small};
   cursor: pointer;
   outline: none;
 

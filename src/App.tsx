@@ -28,8 +28,7 @@ function App() {
 
       {showModal && (
         <Modal onClose={handleCloseModal} aria-label="Modal window is open">
-          <p>Hello</p>
-          {/* <AddForm closeModal={handleCloseModal} /> */}
+          <AddForm closeModal={handleCloseModal} />
         </Modal>
       )}
     </Container>
