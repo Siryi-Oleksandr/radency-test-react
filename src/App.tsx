@@ -7,12 +7,14 @@ import {
   Table,
   TableBodyNotes,
   TableHeadNotes,
-  AddBtn,
   AddForm,
+  TableManager,
+  TextBtn,
 } from 'components';
 
 function App() {
   const [showModal, setShowModal] = useState<boolean>(false);
+  const [showArchive, setShowArchive] = useState<boolean>(false);
 
   const handleShowModal = () => {
     setShowModal(true);
@@ -27,8 +29,21 @@ function App() {
   return (
     <Container>
       <GlobalStyle />
-      <Table tableHead={<TableHeadNotes />} tableBody={<TableBodyNotes />} />
-      <AddBtn openModal={handleShowModal} />
+      {showArchive ? (
+        <Table tableHead={<TableHeadNotes />} tableBody={<TableBodyNotes />} />
+      ) : (
+        <Table tableHead={<TableHeadNotes />} tableBody={<TableBodyNotes />} />
+      )}
+
+      <TableManager>
+        {showArchive ? (
+          <TextBtn text="Show Archive" onClick={() => setShowArchive(true)} />
+        ) : (
+          <TextBtn text="Show Notes" onClick={() => setShowArchive(false)} />
+        )}
+
+        <TextBtn text="Create Note" onClick={handleShowModal} />
+      </TableManager>
 
       {showModal && (
         <Modal onClose={handleCloseModal} aria-label="Modal window is open">

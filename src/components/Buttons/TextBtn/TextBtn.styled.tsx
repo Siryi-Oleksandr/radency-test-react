@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Btn = styled.button`
   display: block;
-  padding: 4px;
+  padding: 4px 8px;
 
   min-width: 80px;
 

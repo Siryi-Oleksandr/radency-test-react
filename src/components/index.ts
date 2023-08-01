@@ -10,6 +10,7 @@ import AddForm from 'components/AddForm/AddForm';
 import EditForm from 'components/EditForm/EditForm';
 import Warning from 'components/Warning/Warning';
 import TextBtn from 'components/Buttons/TextBtn/TextBtn';
+import TableManager from 'components/TableManager/TableManager';
 
 export {
   Container,
@@ -24,4 +25,5 @@ export {
   Warning,
   TextBtn,
   EditForm,
+  TableManager,
 };

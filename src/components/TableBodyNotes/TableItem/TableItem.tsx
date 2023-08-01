@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import { useAppDispatch } from 'hooks/reduxHooks';
-import { deleteNote } from 'redux/notesSlice';
+import { archiveNote, deleteNote } from 'redux/notesSlice';
 import { TableData, TableRow, TableDataOptions } from './TableItem.styled';
 import { BtnOption, Icon, Modal, Warning, EditForm } from 'components';
 import { HiPencil } from 'react-icons/hi';
@@ -39,6 +39,10 @@ const TableItem: FC<Props> = ({ note }) => {
     setIsEditNote(true);
   };
 
+  const handleArchiveNote = () => {
+    dispatch(archiveNote(note));
+  };
+
   const { name, created, category, content, dates } = note;
   return (
     <TableRow>
@@ -53,7 +57,7 @@ const TableItem: FC<Props> = ({ note }) => {
       <TableDataOptions>
         <BtnOption onClick={handleEditNote} icon={<HiPencil size="1.5em" />} />
         <BtnOption
-          onClick={handleShowModal}
+          onClick={handleArchiveNote}
           icon={<RiFolderDownloadFill size="1.5em" />}
         />
         <BtnOption onClick={handleShowModal} icon={<MdDelete size="1.5em" />} />

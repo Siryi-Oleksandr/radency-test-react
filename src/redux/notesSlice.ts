@@ -2,12 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { INote } from 'types/INote';
 import { initialNotes } from 'bd/notes';
-import { toast } from 'react-hot-toast';
+// import { toast } from 'react-hot-toast';
 
 // Define a type for the slice state
 interface INotesState {
   notes: INote[];
-  archivedNotes: [];
+  archivedNotes: INote[];
 }
 
 // Define the initial state using that type
@@ -32,10 +32,15 @@ export const notesSlice = createSlice({
         note.id === updatedNote.id ? updatedNote : note
       );
     },
+    archiveNote: (state, action: PayloadAction<INote>) => {
+      state.archivedNotes.push(action.payload);
+      state.notes = state.notes.filter(note => note.id !== action.payload.id);
+    },
   },
 });
 
-export const { createNote, deleteNote, editNote } = notesSlice.actions;
+export const { createNote, deleteNote, editNote, archiveNote } =
+  notesSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 // export const selectCount = (state: RootState) => state.counter.value;
