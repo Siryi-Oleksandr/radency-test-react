@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react';
 import { nanoid } from 'nanoid';
+import { toast } from 'react-hot-toast';
 import {
   FormStyled,
   Label,
@@ -30,13 +31,17 @@ interface IProps {
 }
 
 const AddForm: FC<IProps> = ({ closeModal }) => {
-  const dispatch = useAppDispatch(); // Get the dispatch function from Redux
-
   const [formData, setFormData] = useState<IForm>(initialState);
+  const dispatch = useAppDispatch(); // Get the dispatch function from Redux
 
   // Form submission handler
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (!formData.name || !formData.category || !formData.content) {
+      toast.error(`Please fill in all required fields.`);
+      return;
+    }
 
     const newNote: INote = {
       id: nanoid(),
@@ -74,7 +79,6 @@ const AddForm: FC<IProps> = ({ closeModal }) => {
           name="name"
           value={formData.name}
           onChange={handleChange}
-          required
         />
       </Label>
 
@@ -97,7 +101,6 @@ const AddForm: FC<IProps> = ({ closeModal }) => {
           name="content"
           value={formData.content}
           onChange={handleChange}
-          required
         ></Textarea>
       </Label>
 

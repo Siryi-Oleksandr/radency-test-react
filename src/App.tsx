@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { GlobalStyle } from './GlobalStyle';
+import { Toaster } from 'react-hot-toast';
 import {
   Container,
   Modal,
@@ -31,6 +32,7 @@ function App() {
           <AddForm closeModal={handleCloseModal} />
         </Modal>
       )}
+      <Toaster position="top-right" reverseOrder={false} />
     </Container>
   );
 }
