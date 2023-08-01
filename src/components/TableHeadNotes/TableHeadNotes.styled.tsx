@@ -1,11 +1,8 @@
 import styled from 'styled-components';
 
-export const TableHeadRow = styled.tr`
-  background-color: ${props => props.theme.colors.bgTableRow};
-  &:hover,
-  &:focus {
-    background-color: ${props => props.theme.colors.bgHover};
-  }
+export const TableHead = styled.thead`
+  background-color: ${props => props.theme.colors.bg};
+  color: ${props => props.theme.colors.white};
 `;
 
 export const TableHeadTitle = styled.th`

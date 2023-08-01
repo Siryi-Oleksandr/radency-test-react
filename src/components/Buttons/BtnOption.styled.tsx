@@ -10,7 +10,7 @@ export const Btn = styled.button`
   border: none;
   outline: none;
 
-  color: ${props => props.theme.colors.white};
+  color: inherit;
   background-color: transparent;
   cursor: pointer;
 

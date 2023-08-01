@@ -1,18 +1,17 @@
 import React, { FC } from 'react';
 import {
-  TableHeadRow,
+  TableHead,
   TableHeadTitle,
   TableOptions,
 } from './TableHeadNotes.styled';
-// import { HiPencil } from 'react-icons/hi';
 import { MdDelete } from 'react-icons/md';
 import { RiFolderDownloadFill } from 'react-icons/ri';
 import { BtnOption } from 'components';
 
 const TableHeadNotes: FC = () => {
   return (
-    <thead>
-      <TableHeadRow>
+    <TableHead>
+      <tr>
         <TableHeadTitle></TableHeadTitle>
         <TableHeadTitle>Name</TableHeadTitle>
         <TableHeadTitle>Created</TableHeadTitle>
@@ -23,8 +22,8 @@ const TableHeadNotes: FC = () => {
           <BtnOption icon={<MdDelete size="1.5em" />} />
           <BtnOption icon={<RiFolderDownloadFill size="1.5em" />} />
         </TableOptions>
-      </TableHeadRow>
-    </thead>
+      </tr>
+    </TableHead>
   );
 };
 

@@ -18,8 +18,8 @@ export const theme = {
   radii: {
     none: '0',
     small: '4px',
-    medium: '16px',
-    big: '32px',
+    medium: '8px',
+    big: '16px',
     round: '50%',
   },
 

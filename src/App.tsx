@@ -6,7 +6,6 @@ function App() {
   return (
     <Container>
       <GlobalStyle />
-      <h1>Hello world</h1>
       <Table tableHead={<TableHeadNotes />} tableBody={<TableBodyNotes />} />
     </Container>
   );
