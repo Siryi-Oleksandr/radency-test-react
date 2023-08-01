@@ -5,10 +5,14 @@ import {
   TableOptions,
 } from './TableHeadNotes.styled';
 import { MdDelete } from 'react-icons/md';
-import { RiFolderDownloadFill } from 'react-icons/ri';
+import { RiFolderDownloadFill, RiFolderUploadFill } from 'react-icons/ri';
 import { BtnOption, Modal, Warning } from 'components';
 import { useAppDispatch } from 'hooks/reduxHooks';
-import { deleteAllNotes, archiveAllNotes } from 'redux/notesSlice';
+import {
+  deleteAllNotes,
+  archiveAllNotes,
+  unArchiveAllNotes,
+} from 'redux/notesSlice';
 
 type Props = {
   type: 'notes' | 'archive';
@@ -49,10 +53,17 @@ const TableHeadNotes: FC<Props> = ({ type }) => {
         <TableHeadTitle>Content</TableHeadTitle>
         <TableHeadTitle>Dates</TableHeadTitle>
         <TableOptions>
-          <BtnOption
-            onClick={handleShowModal}
-            icon={<RiFolderDownloadFill size="1.5em" />}
-          />
+          {type === 'notes' ? (
+            <BtnOption
+              onClick={handleShowModal}
+              icon={<RiFolderDownloadFill size="1.5em" />}
+            />
+          ) : (
+            <BtnOption
+              onClick={() => dispatch(unArchiveAllNotes())}
+              icon={<RiFolderUploadFill size="1.5em" />}
+            />
+          )}
           {type === 'notes' && (
             <BtnOption
               onClick={() => {

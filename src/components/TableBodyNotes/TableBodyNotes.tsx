@@ -1,16 +1,32 @@
 import React, { FC } from 'react';
 import TableItem from './TableItem/TableItem';
 import { useNotes } from 'hooks/useNotes';
+import { TableType } from 'types/TableType';
+import { INote } from 'types/INote';
 
-const TableBodyNotes: FC = () => {
-  const { notes } = useNotes();
+interface Props {
+  type: TableType;
+}
+
+const TableBodyNotes: FC<Props> = ({ type }) => {
+  const { notes, archivedNotes } = useNotes();
 
   return (
-    <tbody>
-      {notes.map(note => (
-        <TableItem key={note.id} note={note} />
-      ))}
-    </tbody>
+    <>
+      {type === 'notes' ? (
+        <tbody>
+          {notes.map(note => (
+            <TableItem key={note.id} note={note} type="notes" />
+          ))}
+        </tbody>
+      ) : (
+        <tbody>
+          {archivedNotes.map((note: INote) => (
+            <TableItem key={note.id} note={note} type="archive" />
+          ))}
+        </tbody>
+      )}
+    </>
   );
 };
 

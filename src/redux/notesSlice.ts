@@ -36,9 +36,19 @@ export const notesSlice = createSlice({
       state.archivedNotes.push(action.payload);
       state.notes = state.notes.filter(note => note.id !== action.payload.id);
     },
+    unArchiveNote: (state, action: PayloadAction<INote>) => {
+      state.notes.push(action.payload);
+      state.archivedNotes = state.archivedNotes.filter(
+        note => note.id !== action.payload.id
+      );
+    },
     archiveAllNotes: state => {
       state.archivedNotes.push(...state.notes);
       state.notes = [];
+    },
+    unArchiveAllNotes: state => {
+      state.notes.push(...state.archivedNotes);
+      state.archivedNotes = [];
     },
     deleteAllNotes: state => {
       state.notes = [];
@@ -53,6 +63,8 @@ export const {
   archiveNote,
   archiveAllNotes,
   deleteAllNotes,
+  unArchiveAllNotes,
+  unArchiveNote,
 } = notesSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type

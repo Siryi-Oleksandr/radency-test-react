@@ -26,20 +26,33 @@ function App() {
     document.body.style.overflow = 'auto';
   };
 
+  const handleShowArchive = () => {
+    setShowArchive(true);
+  };
+  const handleShowNotes = () => {
+    setShowArchive(false);
+  };
+
   return (
     <Container>
       <GlobalStyle />
       {showArchive ? (
-        <Table tableHead={<TableHeadNotes />} tableBody={<TableBodyNotes />} />
+        <Table
+          tableHead={<TableHeadNotes type="archive" />}
+          tableBody={<TableBodyNotes type="archive" />}
+        />
       ) : (
-        <Table tableHead={<TableHeadNotes />} tableBody={<TableBodyNotes />} />
+        <Table
+          tableHead={<TableHeadNotes type="notes" />}
+          tableBody={<TableBodyNotes type="notes" />}
+        />
       )}
 
       <TableManager>
         {showArchive ? (
-          <TextBtn text="Show Archive" onClick={() => setShowArchive(true)} />
+          <TextBtn text="Show Notes" onClick={handleShowNotes} />
         ) : (
-          <TextBtn text="Show Notes" onClick={() => setShowArchive(false)} />
+          <TextBtn text="Show Archive" onClick={handleShowArchive} />
         )}
 
         <TextBtn text="Create Note" onClick={handleShowModal} />

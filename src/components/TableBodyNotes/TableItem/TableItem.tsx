@@ -1,19 +1,21 @@
 import React, { FC, useState } from 'react';
 import { useAppDispatch } from 'hooks/reduxHooks';
-import { archiveNote, deleteNote } from 'redux/notesSlice';
+import { archiveNote, deleteNote, unArchiveNote } from 'redux/notesSlice';
 import { TableData, TableRow, TableDataOptions } from './TableItem.styled';
 import { BtnOption, Icon, Modal, Warning, EditForm } from 'components';
 import { HiPencil } from 'react-icons/hi';
-import { RiFolderDownloadFill } from 'react-icons/ri';
+import { RiFolderDownloadFill, RiFolderUploadFill } from 'react-icons/ri';
 import { MdDelete } from 'react-icons/md';
 import { INote } from 'types/INote';
+import { TableType } from 'types/TableType';
 import { getIcon, cutString, showDates } from 'services';
 
 interface Props {
   note: INote;
+  type: TableType;
 }
 
-const TableItem: FC<Props> = ({ note }) => {
+const TableItem: FC<Props> = ({ note, type }) => {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [isEditNote, setIsEditNote] = useState<boolean>(false);
   const dispatch = useAppDispatch();
@@ -54,14 +56,29 @@ const TableItem: FC<Props> = ({ note }) => {
       <TableData>{category}</TableData>
       <TableData>{cutString(content)}</TableData>
       <TableData>{showDates(dates)}</TableData>
-      <TableDataOptions>
-        <BtnOption onClick={handleEditNote} icon={<HiPencil size="1.5em" />} />
-        <BtnOption
-          onClick={handleArchiveNote}
-          icon={<RiFolderDownloadFill size="1.5em" />}
-        />
-        <BtnOption onClick={handleShowModal} icon={<MdDelete size="1.5em" />} />
-      </TableDataOptions>
+      {type === 'notes' ? (
+        <TableDataOptions>
+          <BtnOption
+            onClick={handleEditNote}
+            icon={<HiPencil size="1.5em" />}
+          />
+          <BtnOption
+            onClick={handleArchiveNote}
+            icon={<RiFolderDownloadFill size="1.5em" />}
+          />
+          <BtnOption
+            onClick={handleShowModal}
+            icon={<MdDelete size="1.5em" />}
+          />
+        </TableDataOptions>
+      ) : (
+        <TableDataOptions>
+          <BtnOption
+            onClick={() => dispatch(unArchiveNote(note))}
+            icon={<RiFolderUploadFill size="1.5em" />}
+          />
+        </TableDataOptions>
+      )}
       {showModal && (
         <Modal onClose={handleCloseModal} aria-label="Modal window is open">
           {isEditNote ? (
