@@ -36,11 +36,24 @@ export const notesSlice = createSlice({
       state.archivedNotes.push(action.payload);
       state.notes = state.notes.filter(note => note.id !== action.payload.id);
     },
+    archiveAllNotes: state => {
+      state.archivedNotes.push(...state.notes);
+      state.notes = [];
+    },
+    deleteAllNotes: state => {
+      state.notes = [];
+    },
   },
 });
 
-export const { createNote, deleteNote, editNote, archiveNote } =
-  notesSlice.actions;
+export const {
+  createNote,
+  deleteNote,
+  editNote,
+  archiveNote,
+  archiveAllNotes,
+  deleteAllNotes,
+} = notesSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 // export const selectCount = (state: RootState) => state.counter.value;

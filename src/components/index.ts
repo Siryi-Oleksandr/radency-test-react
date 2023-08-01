@@ -5,7 +5,6 @@ import TableHeadNotes from 'components/TableHeadNotes/TableHeadNotes';
 import BtnOption from 'components/Buttons/BtnOptions/BtnOption';
 import Icon from 'components/Icon/Icon';
 import Modal from 'components/Modal/Modal';
-import AddBtn from 'components/Buttons/AddBtn/AddBtn';
 import AddForm from 'components/AddForm/AddForm';
 import EditForm from 'components/EditForm/EditForm';
 import Warning from 'components/Warning/Warning';
@@ -20,7 +19,6 @@ export {
   BtnOption,
   Icon,
   Modal,
-  AddBtn,
   AddForm,
   Warning,
   TextBtn,
