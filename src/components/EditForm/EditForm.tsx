@@ -41,17 +41,24 @@ const EditForm: FC<IProps> = ({ note, closeModal }) => {
       return;
     }
 
-    const newNote: INote = {
-      id: note.id,
-      name: formData.name,
-      created: createFormatedDate(),
-      category: formData.category,
-      content: formData.content,
-      dates: parseDates(formData.content),
-    };
-    dispatch(editNote(newNote));
+    try {
+      const newNote: INote = {
+        id: note.id,
+        name: formData.name,
+        created: createFormatedDate(),
+        category: formData.category,
+        content: formData.content,
+        dates: parseDates(formData.content),
+      };
+      dispatch(editNote(newNote));
 
-    closeModal();
+      closeModal();
+    } catch (error) {
+       console.error('Error editing note:', error);
+       toast.error(
+         `An error occurred while editing the note. Please try again.`
+       );
+    }
   };
 
   const handleChange = (

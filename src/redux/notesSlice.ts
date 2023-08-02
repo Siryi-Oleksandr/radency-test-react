@@ -2,15 +2,14 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { INote } from 'types/INote';
 import { initialNotes } from 'bd/notes';
-// import { toast } from 'react-hot-toast';
 
-// Define a type for the slice state
+// Define a interface for the slice state
 interface INotesState {
   notes: INote[];
   archivedNotes: INote[];
 }
 
-// Define the initial state using that type
+// Define the initial state
 const initialState: INotesState = {
   notes: initialNotes,
   archivedNotes: [],

@@ -43,19 +43,26 @@ const AddForm: FC<IProps> = ({ closeModal }) => {
       return;
     }
 
-    const newNote: INote = {
-      id: nanoid(),
-      name: formData.name,
-      created: createFormatedDate(),
-      category: formData.category,
-      content: formData.content,
-      dates: parseDates(formData.content),
-    };
-    dispatch(createNote(newNote));
+    try {
+      const newNote: INote = {
+        id: nanoid(),
+        name: formData.name,
+        created: createFormatedDate(),
+        category: formData.category,
+        content: formData.content,
+        dates: parseDates(formData.content),
+      };
+      dispatch(createNote(newNote));
 
-    // Reset the form after submission
-    setFormData(initialState);
-    closeModal();
+      // Reset the form after submission
+      setFormData(initialState);
+      closeModal();
+    } catch (error) {
+      console.error('Error creating note:', error);
+      toast.error(
+        `An error occurred while creating the note. Please try again.`
+      );
+    }
   };
 
   const handleChange = (

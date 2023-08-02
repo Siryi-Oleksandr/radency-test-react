@@ -58,3 +58,4 @@ $ npm start
 - Redux Toolkit
 - Styled components
 - Webpack
+- Reacy Icons, React Hot Tost
