@@ -21,7 +21,7 @@ export const notesSlice = createSlice({
   initialState,
   reducers: {
     createNote: (state, action: PayloadAction<INote>) => {
-      state.notes.push(action.payload);
+      state.notes = [...state.notes, action.payload];
     },
     deleteNote: (state, action: PayloadAction<string>) => {
       state.notes = state.notes.filter(note => note.id !== action.payload);
@@ -33,21 +33,23 @@ export const notesSlice = createSlice({
       );
     },
     archiveNote: (state, action: PayloadAction<INote>) => {
-      state.archivedNotes.push(action.payload);
-      state.notes = state.notes.filter(note => note.id !== action.payload.id);
+      const noteToArchive = action.payload;
+      state.archivedNotes = [...state.archivedNotes, noteToArchive];
+      state.notes = state.notes.filter(note => note.id !== noteToArchive.id);
     },
     unArchiveNote: (state, action: PayloadAction<INote>) => {
-      state.notes.push(action.payload);
+      const noteToUnArchive = action.payload;
+      state.notes = [...state.notes, noteToUnArchive];
       state.archivedNotes = state.archivedNotes.filter(
-        note => note.id !== action.payload.id
+        note => note.id !== noteToUnArchive.id
       );
     },
     archiveAllNotes: state => {
-      state.archivedNotes.push(...state.notes);
+      state.archivedNotes = [...state.archivedNotes, ...state.notes];
       state.notes = [];
     },
     unArchiveAllNotes: state => {
-      state.notes.push(...state.archivedNotes);
+      state.notes = [...state.notes, ...state.archivedNotes];
       state.archivedNotes = [];
     },
     deleteAllNotes: state => {
@@ -66,8 +68,5 @@ export const {
   unArchiveAllNotes,
   unArchiveNote,
 } = notesSlice.actions;
-
-// Other code such as selectors can use the imported `RootState` type
-// export const selectCount = (state: RootState) => state.counter.value;
 
 export default notesSlice.reducer;

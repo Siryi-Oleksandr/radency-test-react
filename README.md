@@ -1,46 +1,60 @@
-# Getting Started with Create React App
+# User Notes Manager project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+This is the application that allows users to create, edit, delete, and archive
+notes. The app is created by React + TypeScript, state manager was used Redux
+Toolkit, for building app was used Webpack.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Table of Contents
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [Installation](#installation)
+- [Features](#features)
+- [Technologies Used](#technologies)
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation <a id="installation"></a>
 
-### `npm run build`
+```
+$ git clone https://github.com/Siryi-Oleksandr/radency-test-react.git
+$ cd your-project
+$ npm install
+$ npm start
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Features <a id="features"></a>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Create notes: Users can create new notes by entering a name, content, and
+  category for the note.
+- Edit notes: Users can edit existing notes by clicking on the pencil button and
+  modifying its any fields. If user mentions the date in content field, this
+  date will be added to Dates field.
+- Delete notes: Users can delete notes by clicking on the delete button in the
+  right side of the note. In the top of the table by clicking on the delete
+  button User have possibility to delete all notes. In any case, before deleting
+  the note, the User will be informed and will have the opportunity to change
+  his decision.
+- Archive notes: Users can archive one or all their notes. Users can view
+  archived notes and unarchive them.
+- View the table of the archived notes by clicking on the checkbox button below
+  notes table.
+- Application has unique favikon.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Technologies Used <a id="technologies"></a>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- React
+- TypeScript
+- Redux Toolkit
+- Styled components
+- Webpack
