@@ -10,6 +10,8 @@ import {
   AddForm,
   TableManager,
   TextBtn,
+  TableBodySummary,
+  TableHeadSymmary,
 } from 'components';
 
 function App() {
@@ -57,6 +59,11 @@ function App() {
 
         <TextBtn text="Create Note" onClick={handleShowModal} />
       </TableManager>
+
+      <Table
+        tableHead={<TableHeadSymmary />}
+        tableBody={<TableBodySummary />}
+      />
 
       {showModal && (
         <Modal onClose={handleCloseModal} aria-label="Modal window is open">
